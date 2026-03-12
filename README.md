@@ -142,38 +142,20 @@ http://127.0.0.1:5000
 
 
 ## 📁 Project Structure
-MemeSense
-├───.idea
-│   └───inspectionProfiles
-├───data
-│   ├───test
-│   │   ├───animal_meme
-│   │   ├───dark_humor_meme
-│   │   ├───reaction_meme
-│   │   ├───screenshot_meme
-│   │   └───text_meme
-│   ├───train
-│   │   ├───animal_meme
-│   │   ├───dark_humor_meme
-│   │   ├───reaction_meme
-│   │   ├───screenshot_meme
-│   │   └───text_meme
-│   └───val
-│       ├───animal_meme
-│       ├───dark_humor_meme
-│       ├───reaction_meme
-│       ├───screenshot_meme
-│       └───text_meme
-├───ml
-│   ├───fusion
-│   │   └───__pycache__
-│   ├───image
-│   ├───preprocessing
-│   ├───temporary
-│   ├───text
-│   │   └───__pycache__
-│   └───__pycache__
-├───screenshots
-├───static
-├───templates
-└───venv
+```text
+MemeSense/
+├── data/                  # Dataset organized by categories
+│   ├── test/              # Images for final model evaluation
+│   ├── train/             # Training data
+│   └── val/               # Validation data during training
+├── ml/                    # Machine Learning Core
+│   ├── fusion/            # Multimodal feature fusion logic
+│   ├── image/             # Image processing & CNN features
+│   ├── preprocessing/     # OCR (Tesseract) & cleaning
+│   └── text/              # Text processing (DistilBERT)
+├── screenshots/           # UI screenshots and training plots
+├── static/                # Web assets (CSS, images)
+├── templates/             # Flask HTML templates
+├── app.py                 # Main Flask application
+├── requirements.txt       # Python dependencies
+└── .gitattributes         # Git LFS configuration
