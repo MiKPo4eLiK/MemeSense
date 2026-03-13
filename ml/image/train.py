@@ -194,7 +194,7 @@ def main() -> None:
 
         if accuracy > best_accuracy:
             best_accuracy = accuracy
-            torch.save(model.state_dict(), "best_model.pt")
+            torch.save(model.state_dict(), "training_result/best_model.pt")
             print("Best model saved!")
             epochs_no_improve = 0
         else:
@@ -210,7 +210,7 @@ def main() -> None:
             break
 
     # final evaluation
-    model.load_state_dict(torch.load("best_model.pt", map_location=DEVICE))
+    model.load_state_dict(torch.load("training_result/best_model.pt", map_location=DEVICE))
 
     accuracy, all_preds, all_labels = evaluate(model, val_loader, DEVICE)
 

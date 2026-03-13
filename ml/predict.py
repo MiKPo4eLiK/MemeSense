@@ -35,7 +35,14 @@ transform = transforms.Compose([
 
 tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "best_fusion_checkpoint.pth")
+
+MODEL_PATH = os.path.join(
+    os.path.dirname(__file__),
+    "..",
+    "training_result",
+    "best_fusion_checkpoint.pth"
+)
+
 
 model = MultiModalModel(num_classes=len(CLASSES))
 

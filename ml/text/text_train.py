@@ -86,7 +86,7 @@ for epoch in range(EPOCHS):
         best_acc = acc
         best_preds = all_preds
         best_labels = all_labels
-        torch.save(model.state_dict(), "best_text_model.pt")
+        torch.save(model.state_dict(), "training_result/best_text_model.pt")
         is_best = True
 
     if is_best:

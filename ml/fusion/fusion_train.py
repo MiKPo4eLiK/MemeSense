@@ -80,10 +80,10 @@ def train() -> None:
     start_epoch = 0
 
     # resume
-    if os.path.exists("last_checkpoint.pth"):
+    if os.path.exists("training_result/last_checkpoint.pth"):
         print("Last checkpoint found. Resuming training...")
 
-        checkpoint = torch.load("last_checkpoint.pth", map_location=device)
+        checkpoint = torch.load("training_result/last_checkpoint.pth", map_location=device)
 
         model.load_state_dict(checkpoint["model_state_dict"])
         optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
@@ -183,7 +183,7 @@ def train() -> None:
                 "optimizer_state_dict": optimizer.state_dict(),
                 "scheduler_state_dict": scheduler.state_dict(),
                 "best_val_loss": best_val_loss,
-            }, "best_fusion_checkpoint.pth")
+            }, "training_result/best_fusion_checkpoint.pth")
 
             print("Best model saved!")
 
@@ -203,7 +203,7 @@ def train() -> None:
             "train_losses": train_losses,
             "val_losses": val_losses,
             "val_accuracies": val_accuracies,
-        }, "last_checkpoint.pth")
+        }, "training_result/last_checkpoint.pth")
 
         print(f"Last checkpoint saved (epoch {epoch + 1})")
 
@@ -216,7 +216,7 @@ def train() -> None:
     # confusion matrix
     print("\nLoading best model for final evaluation...")
 
-    checkpoint = torch.load("best_fusion_checkpoint.pth", map_location=device)
+    checkpoint = torch.load("training_result/best_fusion_checkpoint.pth", map_location=device)
 
     model.load_state_dict(checkpoint["model_state_dict"])
 
@@ -260,7 +260,7 @@ def train() -> None:
     plt.title("Training vs Validation Loss")
     plt.legend()
 
-    plt.savefig("training_loss.png")
+    plt.savefig("training_result/training_loss.png")
     plt.show()
 
     plt.figure()
@@ -270,7 +270,7 @@ def train() -> None:
     plt.title("Validation Accuracy")
     plt.legend()
 
-    plt.savefig("training_accuracy.png")
+    plt.savefig("training_result/training_accuracy.png")
     plt.show()
 
     print("Training finished 🚀")

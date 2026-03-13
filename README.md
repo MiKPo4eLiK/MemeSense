@@ -144,18 +144,23 @@ http://127.0.0.1:5000
 ## 📁 Project Structure
 ```text
 MemeSense/
-├── data/                  # Dataset organized by categories
-│   ├── test/              # Images for final model evaluation
-│   ├── train/             # Training data
-│   └── val/               # Validation data during training
+├── data/                  # Raw and processed datasets (ignored by Git)
+│   ├── test/              # 5 meme categories for testing
+│   ├── train/             # Training set
+│   └── val/               # Validation set
 ├── ml/                    # Machine Learning Core
-│   ├── fusion/            # Multimodal feature fusion logic
-│   ├── image/             # Image processing & CNN features
-│   ├── preprocessing/     # OCR (Tesseract) & cleaning
-│   └── text/              # Text processing (DistilBERT)
-├── screenshots/           # UI screenshots and training plots
-├── static/                # Web assets (CSS, images)
+│   ├── fusion/            # Multimodal fusion model logic
+│   ├── image/             # Computer Vision (CNN) components
+│   ├── text/              # NLP (DistilBERT) components
+│   ├── preprocessing/     # OCR & image cleaning
+│   └── predict.py         # Inference script for Flask
+├── training_result/       # AI Training outputs (Models & Analytics)
+│   ├── *.pt, *.pth        # Trained model weights (LFS)
+│   ├── training_loss.png  # Loss curves
+│   └── training_accuracy.png # Accuracy plots
+├── screenshots/           # UI screenshots for README
+├── static/                # Web assets (CSS, background images)
 ├── templates/             # Flask HTML templates
-├── app.py                 # Main Flask application
-├── requirements.txt       # Python dependencies
-└── .gitattributes         # Git LFS configuration
+├── app.py                 # Main Web application
+├── requirements.txt       # Project dependencies
+└── .gitattributes         # Git LFS settings for model files

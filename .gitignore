@@ -228,8 +228,8 @@ logs/
 experiments/
 
 # Allow important images
-!training_accuracy.png
-!training_loss.png
+!training_result/training_accuracy.png
+!training_result/training_loss.png
 !screenshots/
 !MemeSense_training_validation_loss.png
 !MemeSense_validation_accuracy.png
